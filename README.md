@@ -2,19 +2,47 @@
 ***
 
 ## Task
-TODO - What is the problem? And where is the challenge?
+Build a production-ready REST API around a real-world dataset. The challenge is not just exposing data through endpoints — it's doing it securely with token-based authentication, efficiently with Redis caching, consistently with pagination, and reliably enough to run in a containerized cloud environment.
 
 ## Description
-TODO - How have you solved the problem?
+Built a REST API around a USGS earthquake dataset (1000+ records) using Express.js and Prisma ORM with PostgreSQL. Authentication is JWT-based with tokens stored in httpOnly cookies — never exposed to client-side JavaScript. Public GET endpoints are accessible without a token. All write operations require a valid JWT. Redis caches GET responses for 60 seconds and cache is busted on every write. Pagination is enforced at 20 records per page. API documentation is live via Swagger UI. The entire stack runs in Docker with a single command.
 
 ## Installation
-TODO - How to install your project? npm install? make? make re?
+
+```bash
+git clone https://github.com/YOUR_USERNAME/my_api
+cd my_api
+cp .env.example .env
+docker-compose up --build -d
+docker-compose exec api npx prisma migrate deploy
+docker-compose exec api node prisma/seed.js
+docker-compose exec api node scripts/importData.js
+```
 
 ## Usage
-TODO - How does it work?
+
+API runs at `http://localhost:3000`
+Swagger UI at `http://localhost:3000/api-docs`
+
+**Auth:**
 ```
-./my_project argument1 argument2
+POST /api/auth/register   - create account
+POST /api/auth/login      - get token
+POST /api/auth/logout     - clear token
 ```
+
+**Earthquakes (public GET, auth required for write):**
+```
+GET    /api/earthquakes        - paginated list (?page=1)
+GET    /api/earthquakes/:id    - single record
+POST   /api/earthquakes        - create (auth)
+PUT    /api/earthquakes/:id    - update (auth)
+DELETE /api/earthquakes/:id    - delete (auth)
+```
+
+**Live API:** `YOUR_RENDER_URL_HERE`
+
+**API Documentation:** `YOUR_RENDER_URL_HERE/api-docs`
 
 ### The Core Team
 
