@@ -10,7 +10,7 @@ Built a REST API around a USGS earthquake dataset (1000+ records) using Express.
 ## Installation
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/my_api
+git clone https://github.com/the-rehim-work/my_api
 cd my_api
 cp .env.example .env
 docker-compose up --build -d
