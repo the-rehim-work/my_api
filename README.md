@@ -42,7 +42,7 @@ DELETE /api/earthquakes/:id    - delete (auth)
 
 **Live API:** `https://my-api-34hd.onrender.com`
 
-**API Documentation:** `https://my-api-34hd.onrender.com/api-docs`
+**API Documentation (Swagger UI):** https://my-api-34hd.onrender.com/api-docs
 
 ### The Core Team
 
