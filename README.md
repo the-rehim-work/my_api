@@ -40,9 +40,9 @@ PUT    /api/earthquakes/:id    - update (auth)
 DELETE /api/earthquakes/:id    - delete (auth)
 ```
 
-**Live API:** `YOUR_RENDER_URL_HERE`
+**Live API:** `https://my-api-34hd.onrender.com`
 
-**API Documentation:** `YOUR_RENDER_URL_HERE/api-docs`
+**API Documentation:** `https://my-api-34hd.onrender.com/api-docs`
 
 ### The Core Team
 

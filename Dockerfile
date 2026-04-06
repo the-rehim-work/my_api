@@ -14,4 +14,4 @@ COPY . .
 
 EXPOSE 3000
 
-CMD ["node", "server.js"]
+CMD ["/bin/sh", "-c", "npx prisma migrate deploy && node prisma/seed.js && node scripts/importData.js && node server.js"]
